@@ -3,35 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <title>Traffic Light Controller</title>
-    <!-- p5.js 라이브러리와 DOM 관련 확장 라이브러리 포함 -->
+
+    <!-- ✅ p5.js 라이브러리 추가 (시각적 요소 조작 및 시리얼 통신 활용) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.dom.min.js"></script>
-    <!-- CSS 스타일시트 연결 -->
+
+    <!-- ✅ 외부 CSS 파일 연결 (디자인 및 스타일 적용) -->
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <!-- 전체 컨테이너 -->
+    <!-- 📌 전체 컨테이너 (모든 요소 포함) -->
     <div class="container">
+      <!-- 🚦 웹 기반 신호등 컨트롤러 제목 -->
       <h1>Traffic Light Controller</h1>
 
-      <!-- 신호등 인디케이터 영역 (세 개의 원형 요소가 가로로 배치됨) -->
+      <!-- 🔴🟡🟢 신호등 상태를 나타내는 LED 인디케이터 -->
       <div class="traffic-light-indicators">
-        <!-- 각 div는 빨강, 노랑, 초록 LED 상태를 표시 -->
-        <div id="red-indicator" class="circle"></div>
-        <div id="yellow-indicator" class="circle"></div>
-        <div id="green-indicator" class="circle"></div>
+        <!-- ❗ 각 div 요소는 실제 신호등의 상태를 시각적으로 표현 -->
+        <div id="red-indicator" class="circle"></div>    <!-- 🔴 빨간불 -->
+        <div id="yellow-indicator" class="circle"></div> <!-- 🟡 노란불 -->
+        <div id="green-indicator" class="circle"></div>  <!-- 🟢 초록불 -->
       </div>
 
-      <!-- 시리얼 포트 연결 버튼 -->
+      <!-- 🔗 시리얼 포트 연결 버튼 -->
       <button id="connectButton" class="connect-button">Connect Serial</button>
-      <!-- 시리얼 통신 상태 및 정보를 표시할 영역 -->
+      
+      <!-- 🔍 시리얼 통신 상태를 표시하는 텍스트 (기본값: "Waiting for data...") -->
       <p id="serialInfo" class="info">Waiting for data...</p>
 
-      <!-- Red Slider: 빨강 LED 지속시간 조절 -->
+      <!-- 🔴 빨강 LED 지속시간 설정 슬라이더 -->
       <div class="slider-container">
-        <label for="rSlider">Red Duration (ms)</label>
+        <label for="rSlider">Red Duration (ms)</label> <!-- 🏷️ 라벨 -->
         <input type="range" id="rSlider" min="100" max="5000" value="2000" step="100" />
-        <!-- 슬라이더 눈금 표시 -->
+        
+        <!-- 📌 슬라이더 눈금 값 표시 (사용자가 참고 가능) -->
         <div class="ticks">
           <span class="tick" style="left: 0%;">100</span>
           <span class="tick" style="left: 25%;">1500</span>
@@ -41,10 +47,11 @@
         </div>
       </div>
 
-      <!-- Yellow Slider: 노랑 LED 지속시간 조절 -->
+      <!-- 🟡 노랑 LED 지속시간 설정 슬라이더 -->
       <div class="slider-container">
         <label for="ySlider">Yellow Duration (ms)</label>
         <input type="range" id="ySlider" min="100" max="5000" value="500" step="50" />
+        
         <div class="ticks">
           <span class="tick" style="left: 0%;">100</span>
           <span class="tick" style="left: 25%;">1500</span>
@@ -54,10 +61,11 @@
         </div>
       </div>
 
-      <!-- Green Slider: 초록 LED 지속시간 조절 -->
+      <!-- 🟢 초록 LED 지속시간 설정 슬라이더 -->
       <div class="slider-container">
         <label for="gSlider">Green Duration (ms)</label>
         <input type="range" id="gSlider" min="100" max="5000" value="2000" step="100" />
+        
         <div class="ticks">
           <span class="tick" style="left: 0%;">100</span>
           <span class="tick" style="left: 25%;">1500</span>
@@ -68,7 +76,7 @@
       </div>
     </div>
 
-    <!-- p5.js 스케치 파일 연결 -->
+    <!-- ✅ JavaScript 파일 연결 (p5.js 활용한 로직 실행) -->
     <script src="sketch.js"></script>
   </body>
 </html>
