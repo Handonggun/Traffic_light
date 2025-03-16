@@ -45,3 +45,54 @@
 ## 🖥️ **소프트웨어 구성**
 ### **1️⃣ 주요 코드 설명**
 본 프로젝트의 핵심 코드는 **아두이노 (C++) 코드**와 **웹 프론트엔드 (p5.js, JavaScript)** 두 부분으로 나뉩니다.
+
+### 📌 1. Arduino 코드 구성
+📌 TaskScheduler 객체 생성
+아두이노에서 TaskScheduler 라이브러리를 사용하여 신호등 제어 태스크를 생성함.
+![Task Scheduler](image/TaskScheduler.PNG)  
+
+📌 setup 함수
+아두이노 핀을 설정하고, 버튼 인터럽트를 등록하는 부분.
+![setup](image/setup.PNG)  
+
+📌 loop 함수
+메인 루프에서 가변저항 값을 읽어 LED 밝기를 조절하고, 태스크 실행.
+![loop](image/loop.PNG) 
+
+📌 신호등 상태 머신
+신호등이 빨간불 → 노란불 → 초록불 → 깜빡임 → 노란불 → 빨간불 순서로 변경됨.
+![updateTrafficLight](image/updateTrafficLight.PNG) 
+
+
+### 📌 2. JavaScript (p5.js) 코드 구성
+📌 시리얼 포트 연결 (Web Serial API)
+사용자가 "Connect Serial" 버튼을 눌러 아두이노와 연결할 수 있도록 구현됨.
+![p5js connect](image/p5jsconnect.PNG) 
+
+📌 시리얼 데이터 수신 및 파싱
+아두이노에서 보낸 데이터를 받아서 LED 상태 및 모드 정보를 UI에 반영하는 부분.
+![readLoop](image/readLoop.PNG) 
+
+📌 LED 상태 업데이트
+아두이노에서 받은 데이터에 따라 웹 인터페이스의 LED 색상 변경.
+![updateIndicators](image/updateIndicators.PNG) 
+
+
+## 📌 3. 프로젝트 실행 방법
+1️⃣ 아두이노 코드 업로드
+
+Arduino IDE 또는 PlatformIO를 사용하여 아두이노에 코드 업로드
+보드: Arduino Uno
+9600bps 시리얼 통신 설정
+2️⃣ 웹 인터페이스 실행
+
+index.html을 실행하거나, Live Server를 사용
+Chrome 브라우저에서 실행 (Web Serial API 지원 필요)
+3️⃣ 시리얼 포트 연결
+
+"Connect Serial" 버튼 클릭 후 아두이노 포트 선택
+슬라이더를 조작하여 각 LED 지속시간 변경 가능
+4️⃣ 신호등 동작 확인
+
+아두이노 LED가 웹 UI와 동기화되어 작동해야 함
+슬라이더 값 변경 시 즉시 반영
