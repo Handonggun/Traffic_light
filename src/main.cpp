@@ -14,7 +14,7 @@
 #define BUTTON2  3   // 모드 변경 버튼 2 (모든 LED 깜빡임)
 #define BUTTON3  2   // 모드 변경 버튼 3 (전원 ON/OFF 기능)
 
-#define POTENTIOMETER A5  // LED 밝기 조절용 가변저항 (아날로그 입력)
+#define POTENTIOMETER A5  // LED 밝기 조절용 가변저항 (아날로그 입력) 
 
 // -------------------------
 // 🕒 실행 주기 설정
@@ -186,16 +186,16 @@ void updateTrafficLight() {
 // TaskScheduler에 등록
 Task taskUpdateTraffic(STATE_UPDATE_INTERVAL, TASK_FOREVER, []() { updateTrafficLight(); });
 
-// -------------------------
+// --------------------------
 // 🔄 버튼 인터럽트 핸들러
-// -------------------------
+// --------------------------
 
 void handleButton1() { emergencyMode = !emergencyMode; blinkMode = false; powerMode = true; }
 void handleButton2() { blinkMode = !blinkMode; emergencyMode = false; powerMode = true; }
 void handleButton3() { powerMode = !powerMode; emergencyMode = false; blinkMode = false; }
 
 // -------------------------
-// 🛠️ 초기 설정
+// 🛠️ 초기 설정입니다.
 // -------------------------
 
 void setup() {
