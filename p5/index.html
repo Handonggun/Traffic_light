@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Traffic Light Controller</title>
+    <!-- p5.js 라이브러리와 DOM 관련 확장 라이브러리 포함 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.dom.min.js"></script>
+    <!-- CSS 스타일시트 연결 -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 전체 컨테이너 -->
+    <div class="container">
+      <h1>Traffic Light Controller</h1>
+
+      <!-- 신호등 인디케이터 영역 (세 개의 원형 요소가 가로로 배치됨) -->
+      <div class="traffic-light-indicators">
+        <!-- 각 div는 빨강, 노랑, 초록 LED 상태를 표시 -->
+        <div id="red-indicator" class="circle"></div>
+        <div id="yellow-indicator" class="circle"></div>
+        <div id="green-indicator" class="circle"></div>
+      </div>
+
+      <!-- 시리얼 포트 연결 버튼 -->
+      <button id="connectButton" class="connect-button">Connect Serial</button>
+      <!-- 시리얼 통신 상태 및 정보를 표시할 영역 -->
+      <p id="serialInfo" class="info">Waiting for data...</p>
+
+      <!-- Red Slider: 빨강 LED 지속시간 조절 -->
+      <div class="slider-container">
+        <label for="rSlider">Red Duration (ms)</label>
+        <input type="range" id="rSlider" min="100" max="5000" value="2000" step="100" />
+        <!-- 슬라이더 눈금 표시 -->
+        <div class="ticks">
+          <span class="tick" style="left: 0%;">100</span>
+          <span class="tick" style="left: 25%;">1500</span>
+          <span class="tick" style="left: 50%;">3000</span>
+          <span class="tick" style="left: 75%;">4500</span>
+          <span class="tick" style="left: 100%;">5000</span>
+        </div>
+      </div>
+
+      <!-- Yellow Slider: 노랑 LED 지속시간 조절 -->
+      <div class="slider-container">
+        <label for="ySlider">Yellow Duration (ms)</label>
+        <input type="range" id="ySlider" min="100" max="5000" value="500" step="50" />
+        <div class="ticks">
+          <span class="tick" style="left: 0%;">100</span>
+          <span class="tick" style="left: 25%;">1500</span>
+          <span class="tick" style="left: 50%;">3000</span>
+          <span class="tick" style="left: 75%;">4500</span>
+          <span class="tick" style="left: 100%;">5000</span>
+        </div>
+      </div>
+
+      <!-- Green Slider: 초록 LED 지속시간 조절 -->
+      <div class="slider-container">
+        <label for="gSlider">Green Duration (ms)</label>
+        <input type="range" id="gSlider" min="100" max="5000" value="2000" step="100" />
+        <div class="ticks">
+          <span class="tick" style="left: 0%;">100</span>
+          <span class="tick" style="left: 25%;">1500</span>
+          <span class="tick" style="left: 50%;">3000</span>
+          <span class="tick" style="left: 75%;">4500</span>
+          <span class="tick" style="left: 100%;">5000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- p5.js 스케치 파일 연결 -->
+    <script src="sketch.js"></script>
+  </body>
+</html>

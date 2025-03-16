@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+button {
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 10px;
+    background-color: gray !important; /* 초기 상태에서 LED는 비활성 */
+    transition: background-color 0.3s ease-in-out; /* 색상 변경 애니메이션 */
+}
